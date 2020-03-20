@@ -11,6 +11,9 @@ import java.util.logging.Logger;
 import com.jme3.app.Application;
 import com.jme3.app.state.BaseAppState;
 import com.jme3.asset.AssetManager;
+import com.jme3.material.Material;
+import com.jme3.scene.Node;
+import com.jme3.scene.Spatial;
 
 public class StateTest extends BaseAppState implements QuickLoadListener {
 
@@ -19,17 +22,13 @@ public class StateTest extends BaseAppState implements QuickLoadListener {
     @Override
     protected void initialize(Application app) {
         this.assetmanager = app.getAssetManager();
-
-        //Set listener
         QuickLoader.setListener(this);
-        try{
-            // looks in resouces folder
-            QuickLoader.loadModel("/scenes/level.j3o", assetmanager);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-
+        //load scene
+        Node level = (Node) QuickLoader.loadModel("/scenes/stage1.j3o", app.getAssetManager());
+        // load tank model
+        Spatial tank = QuickLoader.loadModel("/models/tank.j3o", assetmanager);
+        Material pbrMat =  QuickLoader.loadMaterial("/models/tank.j3m", assetmanager);
+        tank.setMaterial(pbrMat);
     }
 
     @Override
@@ -61,8 +60,12 @@ public class StateTest extends BaseAppState implements QuickLoadListener {
     }
 
 
+
 }
 
 ```
+
+## Using gui as progress bar
+![](loadbar.png)
 
 
