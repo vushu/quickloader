@@ -32,24 +32,6 @@ public class StateTest extends BaseAppState implements QuickLoadListener {
     }
 
     @Override
-    protected void cleanup(Application app) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    protected void onEnable() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    protected void onDisable() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
     public void onLoading(String file, int bytesRead, int size) {
         float percentLoaded = (float) bytesRead / (float) size * 100;
         if (percentLoaded % 1 == 0){
