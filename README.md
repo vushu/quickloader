@@ -65,7 +65,7 @@ public class StateTest extends BaseAppState implements QuickLoadListener {
 
 ```
 
-## Using gui as progress bar
+## Using lemur to create custom as progress bar
 ![](loadbar.png)
 
 
